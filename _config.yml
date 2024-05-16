@@ -2,3 +2,6 @@ title: Mohamedelhassan M.Mahjob
 logo: assets/images/profile_pic.jpg
 show_downloads: true
 remote_theme: pages-themes/cayman@v0.6.1
+
+plugins:
+  - jekyll-remote-theme
