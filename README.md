@@ -1,7 +1,7 @@
-# Data Portfolio: Excel to Power BI 
+# Data Portfolio: Python & Excel to Power BI 
 
 
-![excel-to-powerbi-animated-diagram](assets/images/kaggle_to_powerbi.gif)
+
 
 
 
@@ -46,7 +46,7 @@ The Head of Marketing wants to find out who the top YouTubers are in 2024 to dec
 
 - What is the ideal solution? 
 
-To create a dashboard that provides insights into the top UK YouTubers in 2024 that includes their 
+To create a dashboard that provides insights into the top UAE YouTubers in 2024 that includes their 
 - subscriber count
 - total views
 - total videos, and
@@ -56,7 +56,7 @@ This will help the marketing team make informed decisions about which YouTubers 
 
 ## User story 
 
-As the Head of Marketing, I want to use a dashboard that analyses YouTube channel data in the UK . 
+As the Head of Marketing, I want to use a dashboard that analyses YouTube channel data in the UAE . 
 
 This dashboard should allow me to identify the top performing channels based on metrics like subscriber base and average views. 
 
@@ -67,7 +67,7 @@ With this information, I can make more informed decisions about which Youtubers 
 
 - What data is needed to achieve our objective?
 
-We need data on the top UK YouTubers in 2024 that includes their 
+We need data on the top UAE YouTubers in 2024 that includes their 
 - channel names
 - total subscribers
 - total views
@@ -119,7 +119,7 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
 
 
-![Dashboard-Mockup](assets/images/dashboard_mockup.png)
+![Dashboard-Mockup](Assets/images/Dashboard _Mockup.png)
 
 
 ## Tools 
@@ -140,7 +140,7 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
 - What's the general approach in creating this solution from start to finish?
 
-1. Get the data
+1. Get the data (from Kaggle and updated by scrab the new data from YouTube using Python)
 2. Explore the data in Excel
 3. Load the data into SQL Server
 4. Clean the data with SQL
