@@ -1,7 +1,7 @@
 # Data Portfolio: Excel to Power BI 
 
 
-![excel-to-powerbi-animated-diagram](assets/images/kaggle_to_powerbi.gif)
+![excel-to-powerbi-animated-diagram](Assets/images/kaggle_to_powerbi.gif)
 
 
 
@@ -140,7 +140,7 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
 
 
-![Dashboard-Mockup](assets/images/dashboard_mockup.png)
+![Dashboard-Mockup](Assets/images/Dashboard _Mockup.png)
 
 
 
