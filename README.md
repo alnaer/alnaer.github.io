@@ -1,7 +1,7 @@
 # Data Portfolio: Excel to Power BI 
 
 
-![excel-to-powerbi-animated-diagram](Assets/images/kaggle_to_powerbi.gif)
+![excel-to-powerbi-animated-diagram](assets/images/kaggle_to_powerbi.gif)
 
 
 
@@ -38,6 +38,10 @@
 
 
 
+
+
+
+
 # Objective 
 
 - What is the key pain point? 
@@ -54,6 +58,10 @@ To create a dashboard that provides insights into the top UAE YouTubers in 2024 
 
 This will help the marketing team make informed decisions about which YouTubers to collaborate with for their marketing campaigns.
 
+
+
+
+
 ## User story 
 
 As the Head of Marketing, I want to use a dashboard that analyses YouTube channel data in the UAE . 
@@ -61,6 +69,9 @@ As the Head of Marketing, I want to use a dashboard that analyses YouTube channe
 This dashboard should allow me to identify the top performing channels based on metrics like subscriber base and average views. 
 
 With this information, I can make more informed decisions about which Youtubers are right to collaborate with, and therefore maximize how effective each marketing campaign is.
+
+
+
 
 
 # Data source 
@@ -79,6 +90,8 @@ We need data on the top UAE YouTubers in 2024 that includes their
 The data is sourced from Kaggle (an Excel extract), [see here to find it.](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise?resource=download)
 
 
+
+
 # Stages
 
 - Design
@@ -88,7 +101,11 @@ The data is sourced from Kaggle (an Excel extract), [see here to find it.](https
  
 
 
+
 # Design 
+
+
+
 
 ## Dashboard components required 
 - What should the dashboard contain based on the requirements provided?
@@ -105,6 +122,10 @@ To understand what it should contain, we need to figure out what questions we ne
 For now, these are some of the questions we need to answer, this may change as we progress down our analysis. 
 
 
+
+
+
+
 ## Dashboard mockup
 
 - What should it look like? 
@@ -119,7 +140,10 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
 
 
-![Dashboard-Mockup](Assets/images/Dashboard _Mockup.png)
+![Dashboard-Mockup](assets/images/dashboard_mockup.png)
+
+
+
 
 
 ## Tools 
@@ -128,7 +152,7 @@ Some of the data visuals that may be appropriate in answering our questions incl
 | Tool | Purpose |
 | --- | --- |
 | Excel | Exploring the data |
-|Python | Scrab, update the data from YouTube |
+|Python | Scrap, update the data from YouTube |
 | SQL Server | Cleaning, testing, and analyzing the data |
 | Power BI | Visualizing the data via interactive dashboards |
 | GitHub | Hosting the project documentation and version control |
@@ -137,6 +161,8 @@ Some of the data visuals that may be appropriate in answering our questions incl
 
 
 # Development
+
+
 
 ## Pseudocode
 
@@ -152,6 +178,13 @@ Some of the data visuals that may be appropriate in answering our questions incl
 8. Generate the findings based on the insights
 9. Write the documentation + commentary
 10. Publish the data to GitHub Pages
+
+
+
+
+
+
+
 
 
 ## Data scraping 
@@ -244,7 +277,10 @@ channel_data = pd.DataFrame(channel_statistics)
 # Display the DataFrame
 channel_data
 
-````
+```
+### Output 
+![Display the DataFrame](Assets/images/)
+
 
 
 
@@ -260,6 +296,9 @@ This is the stage where you have a scan of what's in the data, errors, inconcsis
 2. The first column contains the channel ID with what appears to be channel IDS, which are separated by a @ symbol - we need to extract the channel names from this.
 3. Some of the cells and header names are in a different language - we need to confirm if these columns are needed, and if so, we need to address them.
 4. We have more data than we need, so some of these columns would need to be removed
+
+
+
 
 
 
@@ -295,6 +334,238 @@ And here is a tabular representation of the expected schema for the clean data:
 
 
 - What steps are needed to clean and shape the data into the desired format?
-1. 
+1. Update the wrong rows
+2. Remove the duplicated data
+3. Rename columns
 
+
+
+
+
+
+
+### Transform the data 
+
+```sql
+/*
+# 1. Select the required columns
+# 2. Select the Top 100 
+*/
+
+SELECT TOP (100) 
+    [Channel_Names], 
+    [Total_Subscribers],
+    [Total_Views],
+    [Total_Videos]
+
+  FROM [YouTube_db].[dbo].[YT_UAE_2024]
+
+
+```
+
+### Create the SQL view 
+
+```sql
+/*
+# 1. Create a view to store the transformed data
+# 2. Cast the extracted channel name as NVARCHAR(100)
+# 3. Select the required columns from the top_UAE_youtubers_2024 SQL table 
+*/
+-- 1.
+CREATE VIEW view_uae_youtubers_2024 as
+SELECT TOP (100) 
+-- 2.
+    CAST([Channel_Names] AS NVARCHAR(100)) AS [Channel_Names],
+      [Total_Subscribers],
+      [Total_Views],
+      [Total_Videos]
+-- 3.
+  FROM [YouTube_db].[dbo].[YT_UAE_2024]
+  ORDER BY Total_Views DESCan
+
+
+```
+
+
+# Testing 
+
+- What data quality and validation checks are you going to create?
+
+Here are the data quality tests conducted:
+
+## Row count check
+### SQL query 
+
+```sql
+/*
+# Count the total number of records (or rows) are in the SQL view
+*/
+
+SELECT 
+	COUNT(*) as no_of_rows
+FROM view_uae_youtubers_2024;
+
+```
+
+### Output
+![Row count check](Assets/images/1.test rows numbers.png)
+
+
+
+## Column count check
+### SQL query 
+```sql
+/*
+# Count the total number of columns (or fields) are in the SQL view
+*/
+
+ELECT 
+	COUNT(*) as column_count 
+FROM 
+	INFORMATION_SCHEMA.COLUMNS
+WHERE 
+	TABLE_NAME = 'view_uae_youtubers_2024'
+
+
+```
+### Output
+![Column count check](Assets/images/2. test columns number.png)
+
+
+
+## Data type check
+### SQL query 
+```sql
+/*
+# Check the data types of each column from the view by checking the INFORMATION SCHEMA view
+*/
+
+SELECT 
+	COLUMN_NAME,
+	DATA_TYPE
+FROM 
+	INFORMATION_SCHEMA.COLUMNS
+WHERE 
+	TABLE_NAME = 'view_uae_youtubers_2024'
+
+
+```
+### Output
+![Data type check](Assets/images/3.test the data type.png)
+
+
+## Duplicate count check
+### SQL query 
+```sql
+/*
+# 1. Check for duplicate rows in the view
+# 2. Group by the channel name
+# 3. Filter for groups with more than one row
+*/
+SELECT 
+	channel_names,
+	COUNT(*) as duplicate_count
+FROM 
+	view_uae_youtubers_2024
+
+GROUP BY 
+	Channel_Names 
+HAVING 
+	COUNT(*) > 1 
+
+```
+### Output
+
+![Duplicate count check](Assets/images/4.test Duplicated data --pass.png)
+
+
+
+# Visualization 
+
+
+## Results
+
+- What does the dashboard look like?
+
+![GIF of Power BI Dashboard](assets/images/powerbi.gif)
+
+This shows the Top UAE Youtubers in 2024 so far. 
+
+## DAX Measures
+
+
+### 1. Total Subscribers (M)
+```sql
+
+Total Subscribers (M) = 
+VAR million = 1000000
+VAR sumOfSubscribers = SUM(view_uae_youtubers_2024[Total_Subscribers])
+VAR totalSubscribers = DIVIDE(sumOfSubscribers,million)
+
+RETURN totalSubscribers
+
+```
+
+### 2. Total Views (B)
+```sql
+
+Total Views (B) = 
+VAR billion = 1000000000
+VAR sumOfTotalViews = SUM(view_uae_youtubers_2024[total_views])
+VAR totalViews = ROUND(sumOfTotalViews / billion, 2)
+
+RETURN totalViews
+
+```
+
+### 3. Total Videos
+```sql
+
+Total Videos = 
+VAR totalVideos = SUM(view_uae_youtubers_2024[total_videos])
+
+RETURN totalVideos
+
+```
+### 4. Average Views Per Video (M)
+```sql
+
+Average Views per Video (M) = 
+VAR sumOfTotalViews = SUM(view_uae_youtubers_2024[total_views])
+VAR sumOfTotalVideos = SUM(view_uae_youtubers_2024[total_videos])
+VAR  avgViewsPerVideo = DIVIDE(sumOfTotalViews,sumOfTotalVideos, BLANK())
+VAR finalAvgViewsPerVideo = DIVIDE(avgViewsPerVideo, 1000000, BLANK())
+
+RETURN finalAvgViewsPerVideo 
+
+```
+
+### 5. Subscriber Engagement Rate
+```sql
+
+Subscriber Engagement Rate = 
+VAR sumOfTotalSubscribers = SUM(view_uae_youtubers_2024[total_subscribers])
+VAR sumOfTotalVideos = SUM(view_uae_youtubers_2024[total_videos])
+VAR subscriberEngRate = DIVIDE(sumOfTotalSubscribers, sumOfTotalVideos, BLANK())
+
+RETURN subscriberEngRate 
+
+```
+### 6. Views per subscriber
+```sql
+
+Views Per Subscriber = 
+VAR sumOfTotalViews = SUM(view_uae_youtubers_2024[total_views])
+VAR sumOfTotalSubscribers = SUM(view_uae_youtubers_2024[total_subscribers])
+VAR viewsPerSubscriber = DIVIDE(sumOfTotalViews, sumOfTotalSubscribers, BLANK())
+
+RETURN viewsPerSubscriber 
+
+```
+
+
+
+# Analysis 
+
+## Findings
 
