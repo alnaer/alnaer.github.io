@@ -595,4 +595,65 @@ Here are the key questions we need to answer for our marketing client:
 | 10   | Hayla TV                         |  9.02           | 
 
 
+### 2. Which 3 channels have uploaded the most videos?
+
+| Rank | Channel Name             | Videos Uploaded |
+|------|--------------------------|-----------------|
+| 1    | (سكاي نيوز عربية)       | 170,459         |
+| 2    |تلفزيون الان Al Aan TV    | 111,241         |
+| 3    | الحدث AlHadath           | 102,932         |
+
+
+### 3. Which 3 channels have the most views?
+
+
+| Rank | Channel Name | Total Views (B) |
+|------|--------------|-----------------|
+| 1    | شفا - shfa2                      |  27.23         |
+| 2    | shfa                             |  24.71         |
+| 3    | shfa show india                  |  17.77         |
+
+
+### 4. Which 3 channels have the highest average views per video?
+
+| Channel Name | Averge Views per Video (M) |
+|--------------|----------------------------|
+| The Folk & Soul Studio    | 432.35        |
+| shfa show india           | 32.54         |
+| shfa                      | 22.28         |
+
+
+
+### 5. Which 3 channels have the highest views per subscriber ratio?
+
+| Rank | Channel Name       | Views per Subscriber        |
+|------|-----------------   |---------------------------- |
+| 1    | MBC DRAMA          | 1034.30                     |
+| 2    |  Aj Art Production | 862.73                      |
+| 3    | AZFamily           | 759.39                     |
+
+
+### 6. Which 3 channels have the highest subscriber engagement rate per video uploaded?
+
+| Rank | Channel Name    | Subscriber Engagement Rate  |
+|------|-----------------|---------------------------- |
+| 1    | The Folk & Soul Studio | 1608,000.00                     |
+| 2    | KEDOO СЕРИАЛЫ          | 81,632.65        |
+| 3    | shfa show India        | 48,901.10                 |
+
+
+### Notes
+
+For this analysis, we'll prioritize analysing the metrics that are important in generating the expected ROI for our marketing client, which are the YouTube channels with the most 
+
+- subscribers
+- total views
+- videos uploaded
+
+
+## Validation 
+
+### 1. Youtubers with the most subscribers 
+
+#### Calculation breakdown
 
