@@ -568,4 +568,31 @@ RETURN viewsPerSubscriber
 # Analysis 
 
 ## Findings
+For this analysis, we're going to focus on the questions below to get the information we need for our marketing client - 
+
+Here are the key questions we need to answer for our marketing client: 
+1. Who are the top 10 YouTubers with the most subscribers?
+2. Which 3 channels have uploaded the most videos?
+3. Which 3 channels have the most views?
+4. Which 3 channels have the highest average views per video?
+5. Which 3 channels have the highest views per subscriber ratio?
+6. Which 3 channels have the highest subscriber engagement rate per video uploaded?
+
+
+### 1. Who are the top 10 YouTubers with the most subscribers?
+
+| Rank | Channel Name                     | Subscribers (M) |
+|------|----------------------------------|-----------------|
+| 1    | شفا - shfa2                      |  44.00          |
+| 2    | shfa                             |  42.50          |
+| 3    | shfa show india                  |  26.70          |
+| 4    | Noor Stars                       |  20.80          |
+| 5    | Supercar Blondie                 |  19.00          |
+| 6    |  بيسان اسماعيل - Bessan Ismail  |  11.10          |
+| 7    |(عمر عبد الكافي )                |  9.57           |
+| 8    | حسين الجسمي | Hussain Al Jassmi |  9.56           |
+| 9    | MBC THE VOICE KIDS               |  9.17           |
+| 10   | Hayla TV                         |  9.02           | 
+
+
 
