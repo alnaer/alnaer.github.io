@@ -590,7 +590,7 @@ Here are the key questions we need to answer for our marketing client:
 | 5    | Supercar Blondie                 |  19.00          |
 | 6    |  بيسان اسماعيل - Bessan Ismail  |  11.10          |
 | 7    |(عمر عبد الكافي )                |  9.57           |
-| 8    | حسين الجسمي | Hussain Al Jassmi |  9.56           |
+| 8    | حسين الجسمي | Hussain Al Jassmi   9.56           |
 | 9    | MBC THE VOICE KIDS               |  9.17           |
 | 10   | Hayla TV                         |  9.02           | 
 
