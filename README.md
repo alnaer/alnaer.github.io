@@ -279,7 +279,7 @@ channel_data
 
 ```
 ### Output 
-![Display the DataFrame](Assets/images/)
+![Display the DataFrame](Assets/images/Scraping the Data from YT using Python.png)
 
 
 
@@ -487,7 +487,7 @@ HAVING
 
 - What does the dashboard look like?
 
-![GIF of Power BI Dashboard](assets/images/powerbi.gif)
+![GIF of Power BI Dashboard](Assets/images/powerbi.gif)
 
 This shows the Top UAE Youtubers in 2024 so far. 
 
